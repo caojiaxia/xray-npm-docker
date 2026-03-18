@@ -46,7 +46,7 @@ services:
       - xray_net
 
   xray:
-    image: ghcr.io/caojiaxia/xray-docker:latest
+    image: ghcr.io/caojiaxia/xray-npm-docker:latest
     container_name: xray
     restart: always
     environment:
