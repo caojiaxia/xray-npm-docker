@@ -14,15 +14,15 @@ apt install -y curl nano
 ```
 - 3.安装docker：
 ```
-bash <(curl -sSL https://cdn.jsdelivr.net/gh/SuperManito/LinuxMirrors@main/DockerInstallation.sh)
+curl -fsSL https://get.docker.com | bash
 ```
 - 4.安装docker-compose
 ```
 curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && chmod +x /usr/local/bin/docker-compose
 ```
-- 加速镜像
+- docker阿里云加速镜像
 ```
-curl -L "https://hub.gitmirror.com/https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && chmod +x /usr/local/bin/docker-compose
+curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
 ```
 
 ### Xray+NPM
