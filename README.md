@@ -82,7 +82,7 @@ docker compose up -d
 | ----------- | --------------------------------------------------------------------      |
 | Domain Names | 解析到你主机的域名 SSL/TLS配置必须为 `完全（严格） `（解析到`Cloudflare`的域名请打开小黄云）                   |
 | Scheme | http                                                                           |
-| Forward Hostname / IP   | 你的xray镜像名称或者直接填xray                                  |
+| Forward Hostname / IP   | xray                                                           |
 | Forward Port   | 10000                                                                     |
 | Websockets Support | 必须打开                                                             |
 | Force SSL | 必须打开                                                                     |
