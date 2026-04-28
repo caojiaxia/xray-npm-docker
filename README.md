@@ -100,6 +100,7 @@ docker compose up -d
 - 路径 (Path): 你设置的环境变量路径 (注意：如果变量是 abc，路径通常填 /abc)
 - TLS: 开启 (ON)
 - SNI: 你的域名
+- 指纹(Fingerprint):chrome
 - ALPN: h2或者h2,http/1.1
 - 跳过证书验证(allowlnsecure)：false
 
