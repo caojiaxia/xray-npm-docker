@@ -96,6 +96,7 @@ docker compose up -d
 - 端口: 443
 - UUID: 你设置的环境变量 UUID
 - 传输协议 (Transport): xhttp
+- 伪装域名：你的域名
 - 路径 (Path): 你设置的环境变量路径 (注意：如果变量是 abc，路径通常填 /abc)
 - TLS: 开启 (ON)
 - SNI: 你的域名
