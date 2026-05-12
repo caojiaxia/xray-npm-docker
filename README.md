@@ -31,6 +31,17 @@ curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
 
 ```yml      
 services:
+  xray:
+    image: ghcr.io/caojiaxia/xray-npm-docker:latest
+    container_name: xray
+    restart: always
+    environment:
+      UUID: "xxxxxx"     
+      XPATH: "/xxxxxx"   
+    networks:
+      - xray_net
+    # 移除这里的 depends_on，因为它是后端服务
+
   npm:
     image: jc21/nginx-proxy-manager:latest
     container_name: npm
@@ -44,18 +55,9 @@ services:
       - ./npm/letsencrypt:/etc/letsencrypt
     networks:
       - xray_net
-
-  xray:
-    image: ghcr.io/caojiaxia/xray-npm-docker:latest
-    container_name: xray
-    restart: always
-    environment:
-      UUID: xxxxxx     #你的UUID
-      XPATH: /xxxxxx   #你的路径
-    networks:
-      - xray_net
     depends_on:
-      - npm
+      - xray  # NPM 依赖 Xray，确保后端先启动
+
 
 # 网络配置部分
 networks:
