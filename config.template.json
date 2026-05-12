@@ -27,7 +27,10 @@
   ],
   "outbounds": [
     {
-      "protocol": "freedom"
+      "protocol": "freedom",
+      "settings": {
+        "domainStrategy": "${DOMAIN_STRATEGY}"
+      }
     }
   ]
 }
