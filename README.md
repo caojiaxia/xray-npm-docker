@@ -57,9 +57,20 @@ services:
     depends_on:
       - npm
 
+# 网络配置部分
 networks:
+  # 定义自定义网络
   xray_net:
-    driver: bridge
+    name: xray_net  # 强制物理名也不带前缀
+    driver: bridge     # 使用桥接网络模式，使容器间可以相互通信
+    enable_ipv6: true  # 开启 IPv6 支持
+    ipam:
+      driver: default
+      config:
+        # IPv4 子网（保持默认或自定义）
+        - subnet: 172.25.0.0/16
+        # IPv6 子网（使用私有地址段 fd00::/8 中的任意一段）
+        - subnet: fd00:1234:5678::/64e
 ```
 
 ### 启动命令
