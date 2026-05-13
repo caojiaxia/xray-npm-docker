@@ -40,7 +40,12 @@ services:
       XPATH: "/xxxxxx"   
     networks:
       - xray_net
-    # 移除这里的 depends_on，因为它是后端服务
+    # 限制日志大小
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
 
   npm:
     image: jc21/nginx-proxy-manager:latest
@@ -57,7 +62,6 @@ services:
       - xray_net
     depends_on:
       - xray  # NPM 依赖 Xray，确保后端先启动
-
 
 # 网络配置部分
 networks:
