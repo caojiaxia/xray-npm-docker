@@ -62,6 +62,12 @@ services:
       - xray_net
     depends_on:
       - xray  # NPM 依赖 Xray，确保后端先启动
+    # 限制日志大小
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
 
 # 网络配置部分
 networks:
