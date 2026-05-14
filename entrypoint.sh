@@ -1,7 +1,13 @@
 #!/bin/bash
 
-# 默认 IPv6 优先，如果环境变量没设，则使用 UseIPv6
-export DOMAIN_STRATEGY=${DOMAIN_STRATEGY:-UseIPv6}
+# 探测是否存在全局 IPv6 地址 (排除回环地址和链路本地地址)
+if [ -z "$(ip -6 addr show scope global)" ]; then
+    echo "检测到当前环境不支持 IPv6，自动回落至 AsIs 模式..."
+    export DOMAIN_STRATEGY="AsIs"
+else
+    # 如果环境支持，且用户没指定变量，则维持 UseIPv6
+    export DOMAIN_STRATEGY=${DOMAIN_STRATEGY:-UseIPv6}
+fi
 
 # 如果环境变量未设置，则生成随机值
 export UUID=${UUID:-$(cat /proc/sys/kernel/random/uuid)}
