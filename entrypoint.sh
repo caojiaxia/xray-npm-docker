@@ -17,6 +17,8 @@ fi
 # (这部分保持不变)
 export UUID=${UUID:-$(cat /proc/sys/kernel/random/uuid)}
 export XPATH=${XPATH:-/$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 12)}
+# 添加 ECH 默认标识变量（用于客户端识别或环境变量传递）
+export ECH_ENABLE=${ECH_ENABLE:-true}
 
 echo "------------------------------------------"
 echo "Xray Starting with:"
